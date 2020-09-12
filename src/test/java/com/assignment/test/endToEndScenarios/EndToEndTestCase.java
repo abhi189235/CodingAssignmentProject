@@ -16,6 +16,10 @@ public class EndToEndTestCase extends BaseTest{
 	public void testPhase1() throws Exception {
 		tsi.mainLandingPageActions.navigateToWeatherPage();
 		tsi.weatherPageActions.enterCityInPinCityBox();
+		tsi.weatherPageActions.checkCityCheckboxIfNeeded();
+		tsi.weatherPageActions.clickOnWeatherDetailsOfCity();
+		tsi.weatherPageActions.getScreenshotWeatherDetailsPopup();
+		tsi.weatherPageActions.getTemperatureValueInCelsiusOfCity();
 		
 	}
 }

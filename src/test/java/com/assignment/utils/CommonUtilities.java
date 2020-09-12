@@ -1,8 +1,12 @@
 package com.assignment.utils;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -11,6 +15,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -20,14 +25,22 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.filter.log.RequestLoggingFilter;
+import io.restassured.filter.log.ResponseLoggingFilter;
+import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
+import io.restassured.specification.RequestSpecification;
+
 public class CommonUtilities {
 
 	public WebDriver driver;
 	public WebDriverWait wait;
 	private ArrayList<String> locatorValues = null;
-	
+
 	DataIO dio = new DataIO();
-	
+
 	public CommonUtilities(WebDriver driver) {
 		this.driver = driver;
 	}
@@ -35,7 +48,7 @@ public class CommonUtilities {
 	// This is used to get the By Object to track element location on webPage
 	public By getObject(String objectName, String fileName, String replacement) throws Exception {
 		locatorValues = dio.getPageObjectFromExcel(fileName, objectName);
-		
+
 		if (locatorValues.get(1).trim().equalsIgnoreCase("xpath"))
 			return By.xpath(locatorValues.get(2).trim().replaceAll("textToReplace", replacement));
 		else if (locatorValues.get(1).trim().equalsIgnoreCase("css"))
@@ -78,8 +91,7 @@ public class CommonUtilities {
 		js.executeScript("arguments[0].scrollIntoView(true);", ele);
 	}
 
-	public void writeTextInto(WebElement ele, String data)
-			throws Exception {
+	public void writeTextInto(WebElement ele, String data) throws Exception {
 		ele.sendKeys(data);
 	}
 
@@ -231,5 +243,56 @@ public class CommonUtilities {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public boolean isCheckboxSelected(WebElement ele) {
+		return ele.isSelected();
+	}
+
+	public boolean isElementDisplayed(WebElement ele) {
+		return ele.isDisplayed();
+	}
+
+	public boolean isElementEnabled(WebElement ele) {
+		return ele.isEnabled();
+	}
+
+	public void moveScreenToDownUsingClickHold(WebElement ele) {
+		Actions action = new Actions(driver);
+		action.dragAndDropBy(ele, 200, 300).build().perform();
+
+	}
+
+	public void pressEnterKey(WebElement ele) {
+		ele.sendKeys(Keys.ENTER);
+	}
+
+	/*
+	 * ================================================================
+	 * ================UTILITIES FOR API TESTING=======================
+	 * ================================================================
+	 */
+
+	public static RequestSpecification reqSpec;
+
+	public String getKeyValueJsonParsed(String response, String key) {
+		JsonPath jpath = new JsonPath(response);
+		return jpath.get(key).toString();
+	}
+
+	public RequestSpecBuilder requestSpecificationGenrator(String baseURL, HashMap<String, String> headersMap,
+			HashMap<String, String> queryParametersMap, HashMap<String, String> pathParametersMap)
+			throws Exception {
+
+		RequestSpecBuilder requestSpec = new RequestSpecBuilder();
+		PrintStream streamObj = new PrintStream(new FileOutputStream("LoggingAPIFile.text"));
+		requestSpec.setContentType(ContentType.JSON);
+		requestSpec.addFilter(RequestLoggingFilter.logRequestTo(streamObj));
+		requestSpec.addFilter(ResponseLoggingFilter.logResponseTo(streamObj));
+		requestSpec.setBaseUri(baseURL);
+		requestSpec.addQueryParams(queryParametersMap);
+		requestSpec.addHeaders(headersMap);
+		requestSpec.addPathParams(pathParametersMap);
+		return requestSpec;
 	}
 }

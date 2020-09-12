@@ -174,7 +174,7 @@ public class DataIO {
 		loadExcelFile("PageObjects", fileName);
 		ArrayList<String> elements = new ArrayList<String>();
 		
-		for(int i=0;i<sheet.getLastRowNum();i++) {
+		for(int i=0;i<=sheet.getLastRowNum();i++) {
 			row = sheet.getRow(i);
 			if(row.getCell(0).toString().equalsIgnoreCase(objectName)) {
 				elements.add(row.getCell(0).toString());

@@ -11,6 +11,7 @@ public class WebDriverSetup {
 
 	public WebDriver driver;
 
+	// Set the browser as per the given value in the configuration properties file
 	public WebDriver setBrowser() {
 		DataIO dIO = new DataIO();
 		String browserName = dIO.getValuePropertiesFile("Config", "Browser");

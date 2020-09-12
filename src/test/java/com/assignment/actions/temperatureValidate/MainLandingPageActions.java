@@ -9,11 +9,13 @@ public class MainLandingPageActions extends BaseActions {
 
 	public WebDriver driver;
 
+	// Constructor Call
 	public MainLandingPageActions(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
 	}
 
+	// Navigation to the Weather Page from the Main page
 	public void navigateToWeatherPage() throws Exception {
 		WebElement subMenu = getElement("subMenu", "TemperatureAutomationModule", "");
 		clickElement(subMenu);
@@ -21,6 +23,5 @@ public class MainLandingPageActions extends BaseActions {
 		WebElement weatherTab = getElement("weatherTab", "TemperatureAutomationModule", "");
 		clickElement(weatherTab);
 	}
-	
-	
+
 }
