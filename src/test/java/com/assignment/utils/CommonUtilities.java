@@ -27,11 +27,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
 
 public class CommonUtilities {
 
@@ -274,15 +276,15 @@ public class CommonUtilities {
 	 */
 
 	public static RequestSpecification reqSpec;
+	public static ResponseSpecification respSpec;
 
 	public String getKeyValueJsonParsed(String response, String key) {
 		JsonPath jpath = new JsonPath(response);
 		return jpath.get(key).toString();
 	}
 
-	public RequestSpecBuilder requestSpecificationGenrator(String baseURL, HashMap<String, String> headersMap,
-			HashMap<String, String> queryParametersMap, HashMap<String, String> pathParametersMap)
-			throws Exception {
+	public RequestSpecification requestSpecificationGenrator(String baseURL, HashMap<String, String> headersMap,
+			HashMap<String, String> queryParametersMap, HashMap<String, String> pathParametersMap) throws Exception {
 
 		RequestSpecBuilder requestSpec = new RequestSpecBuilder();
 		PrintStream streamObj = new PrintStream(new FileOutputStream("LoggingAPIFile.text"));
@@ -293,6 +295,17 @@ public class CommonUtilities {
 		requestSpec.addQueryParams(queryParametersMap);
 		requestSpec.addHeaders(headersMap);
 		requestSpec.addPathParams(pathParametersMap);
-		return requestSpec;
+		reqSpec = requestSpec.build();
+		return reqSpec;
 	}
+
+	public ResponseSpecification responseSpecificationGenerator(int expectedCode) {
+		
+		ResponseSpecBuilder responseSpec = new ResponseSpecBuilder();
+		responseSpec.expectContentType(ContentType.JSON);
+		responseSpec.expectStatusCode(expectedCode);
+		respSpec = responseSpec.build();
+		return respSpec;
+	}
+
 }
