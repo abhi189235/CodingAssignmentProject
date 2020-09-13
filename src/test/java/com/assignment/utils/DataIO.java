@@ -123,8 +123,10 @@ public class DataIO {
 			e.printStackTrace();
 			return "row " + rowNum + " or column " + colName + " does not exist in xls";
 		}
+		
 	}
 
+	
 	/*
 	 * This method will set the value in the given column and row of the excel sheet
 	 * with the given data, and will return true in return else false
@@ -176,6 +178,7 @@ public class DataIO {
 			workbook.write(fileOut);
 
 			fileOut.close();
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -24,6 +24,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -403,5 +406,21 @@ public class CommonUtilities {
 	// Close all browser instance
 	public void closeAllInstancesBrowser() {
 		driver.quit();
+	}
+
+	// Extend Reporting Utility
+	public static ExtentReports extentReportUtility() {
+		String projectPath = System.getProperty("user.dir");
+		String extentReportPath = projectPath + "\\ExtentReports\\extentReport.html";
+		ExtentSparkReporter reporter = new ExtentSparkReporter(extentReportPath);
+
+		reporter.config().setReportName("Execution Report");
+		reporter.config().setDocumentTitle("Complete Execution Status");
+
+		ExtentReports extent = new ExtentReports();
+		extent.attachReporter(reporter);
+		extent.setSystemInfo("QA Name", "Abhishek Jain");
+		return extent;
+
 	}
 }

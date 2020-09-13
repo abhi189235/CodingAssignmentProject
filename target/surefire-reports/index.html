@@ -102,17 +102,17 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="com.assignment.test.endToEndScenarios.EndToEndTestCase" class="method navigator-link" hash-for-method="testPhase1">testPhase1</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="com.assignment.test.endToEndScenarios.EndToEndTestCase" class="method navigator-link" hash-for-method="readTemperatureFromAPI">readTemperatureFromAPI</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="com.assignment.test.endToEndScenarios.EndToEndTestCase" class="method navigator-link" hash-for-method="testPhase2">testPhase2</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="com.assignment.test.endToEndScenarios.EndToEndTestCase" class="method navigator-link" hash-for-method="readTemperatureFromUI">readTemperatureFromUI</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="com.assignment.test.endToEndScenarios.EndToEndTestCase" class="method navigator-link" hash-for-method="testPhase3">testPhase3</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="com.assignment.test.endToEndScenarios.EndToEndTestCase" class="method navigator-link" hash-for-method="temperatureComparisionUiAndApi">temperatureComparisionUiAndApi</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -135,23 +135,23 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="testPhase1">
-                  </a> <!-- testPhase1 -->
-                  <span class="method-name">testPhase1</span>
+                  <a name="readTemperatureFromAPI">
+                  </a> <!-- readTemperatureFromAPI -->
+                  <span class="method-name">readTemperatureFromAPI</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testPhase2">
-                  </a> <!-- testPhase2 -->
-                  <span class="method-name">testPhase2</span>
+                  <a name="readTemperatureFromUI">
+                  </a> <!-- readTemperatureFromUI -->
+                  <span class="method-name">readTemperatureFromUI</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testPhase3">
-                  </a> <!-- testPhase3 -->
-                  <span class="method-name">testPhase3</span>
+                  <a name="temperatureComparisionUiAndApi">
+                  </a> <!-- temperatureComparisionUiAndApi -->
+                  <span class="method-name">temperatureComparisionUiAndApi</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -164,8 +164,11 @@
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;Suite&quot; guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot;&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;com.assignment.testListners.ListnerClass&quot;/&gt;
+  &lt;/listeners&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot; verbose=&quot;0&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;com.assignment.test.endToEndScenarios.EndToEndTestCase&quot;/&gt;
@@ -210,22 +213,22 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'testPhase1')
+data.setCell(0, 1, 'readTemperatureFromUI')
 data.setCell(0, 2, 'com.assignment.test.endToEndScenarios.EndToEndTestCase')
-data.setCell(0, 3, 16869);
+data.setCell(0, 3, 17510);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'testPhase3')
+data.setCell(1, 1, 'temperatureComparisionUiAndApi')
 data.setCell(1, 2, 'com.assignment.test.endToEndScenarios.EndToEndTestCase')
-data.setCell(1, 3, 3365);
+data.setCell(1, 3, 3406);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'testPhase2')
+data.setCell(2, 1, 'readTemperatureFromAPI')
 data.setCell(2, 2, 'com.assignment.test.endToEndScenarios.EndToEndTestCase')
-data.setCell(2, 3, 1699);
+data.setCell(2, 3, 1865);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 21 seconds</span>
+              <span class="suite-total-time">Total running time: 22 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -258,23 +261,23 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-test before">
                 <span class="method-name">launchBrowserWithUrl</span>
-                <span class="method-start">6241 ms</span>
+                <span class="method-start">6411 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
-                <span class="method-name">testPhase1</span>
-                <span class="method-start">7816 ms</span>
+                <span class="method-name">readTemperatureFromUI</span>
+                <span class="method-start">8336 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">testPhase2</span>
-                <span class="method-start">24686 ms</span>
+                <span class="method-name">readTemperatureFromAPI</span>
+                <span class="method-start">25852 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">testPhase3</span>
-                <span class="method-start">26385 ms</span>
+                <span class="method-name">temperatureComparisionUiAndApi</span>
+                <span class="method-start">27717 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">closeBrowser</span>
-                <span class="method-start">29751 ms</span>
+                <span class="method-start">31125 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

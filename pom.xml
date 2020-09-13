@@ -23,9 +23,10 @@
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>7.1.0</version>
+			<version>7.0.0</version>
 			<scope>test</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>com.beust</groupId>
 			<artifactId>jcommander</artifactId>
@@ -69,12 +70,6 @@
 			<artifactId>selenium-java</artifactId>
 			<version>4.0.0-alpha-6</version>
 		</dependency>
-		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>6.14.3</version>
-			<scope>test</scope>
-		</dependency>
 
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -85,8 +80,9 @@
 		<dependency>
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
-			<version>4.1.6</version>
+			<version>5.0.1</version>
 		</dependency>
+
 
 		<dependency>
 			<groupId>org.apache.poi</groupId>

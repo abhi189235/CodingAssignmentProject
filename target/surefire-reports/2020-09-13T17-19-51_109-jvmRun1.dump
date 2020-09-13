@@ -1,0 +1,16 @@
+# Created at 2020-09-13T17:19:52.432
+org.testng.TestNGException: 
+Listener com.assignment.testListners.ListenerClass was not found in project's classpath
+	at org.testng.TestNG.addListeners(TestNG.java:933)
+	at org.testng.TestNG.initializeConfiguration(TestNG.java:897)
+	at org.testng.TestNG.initializeEverything(TestNG.java:981)
+	at org.testng.TestNG.run(TestNG.java:992)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:283)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:120)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+
+
