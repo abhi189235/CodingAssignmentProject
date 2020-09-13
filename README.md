@@ -18,7 +18,7 @@ Make sure that your system has JDK, Maven, and Eclipse installed with respective
 ##### Import the Project
 Download the whole project and import it into Eclipse's workspace to work on it.
 ##### Change City if required
-Go to "/CodingAssignmentProject/resources/testData/testData.properties" and change the name of the city as per your convenience (Make sure the City is present in the list with the correct spelling)
+Go to "/CodingAssignmentProject/resources/testData/testData.properties" and change the name of the city as per your convenience (Make sure the City is present in the UI and API platforms' list with the correct spelling)
 ##### Ways to Execute the Script
 1. The test class' path is in the testng.xml file, so directly right click on testng.xml file (in Eclipse) and select Run as "TestNG Suite" option
 2. Right Click on Pom.xml file and select "Run as Maven test" option
