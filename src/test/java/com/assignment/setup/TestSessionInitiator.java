@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.assignment.actions.commonActions.BaseActions;
 import com.assignment.actions.temperatureValidate.MainLandingPageActions;
+import com.assignment.actions.temperatureValidate.WeatherAPIHandlingActions;
 import com.assignment.actions.temperatureValidate.WeatherPageActions;
 import com.assignment.utils.CommonUtilities;
 
@@ -22,6 +23,7 @@ public class TestSessionInitiator {
 	public BaseActions baseActions = null;
 	public MainLandingPageActions mainLandingPageActions = null;
 	public WeatherPageActions weatherPageActions = null;
+	public WeatherAPIHandlingActions weatherAPIHandlingActions = null;
 
 	// Configure Very basic properties of browser
 	private void browserConfigurations() {
@@ -36,6 +38,7 @@ public class TestSessionInitiator {
 		baseActions = new BaseActions(driver);
 		mainLandingPageActions = new MainLandingPageActions(driver);
 		weatherPageActions = new WeatherPageActions(driver);
+		weatherAPIHandlingActions = new WeatherAPIHandlingActions(driver);
 
 	}
 

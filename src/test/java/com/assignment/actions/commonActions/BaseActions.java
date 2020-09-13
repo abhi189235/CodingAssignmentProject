@@ -15,7 +15,7 @@ public class BaseActions extends CommonUtilities {
 		this.driver = driver;
 	}
 
-	// This is used to navigate to the Given Url in Properties File
+	// This is used to navigate to the Given URL in Properties File
 	public void navigateToGivenUrl(String fileName, String property) {
 		DataIO dIO = new DataIO();
 		String url = dIO.getValuePropertiesFile(fileName, property);

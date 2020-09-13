@@ -42,7 +42,8 @@ public class DataIO {
 
 	// This is used to load the excel file from the given path
 	public void loadExcelFile(String folderName, String fileName) {
-		String excelPath = System.getProperty("user.dir") + "\\resources\\templates\\"+folderName+"\\" + fileName + ".xlsx";
+		String excelPath = System.getProperty("user.dir") + "\\resources\\templates\\" + folderName + "\\" + fileName
+				+ ".xlsx";
 		this.path = excelPath;
 		try {
 			fis = new FileInputStream(path);
@@ -169,14 +170,15 @@ public class DataIO {
 		}
 		return true;
 	}
-	
+
+	// This is to handle the Page Object Excel sheet
 	public ArrayList<String> getPageObjectFromExcel(String fileName, String objectName) throws Exception {
 		loadExcelFile("PageObjects", fileName);
 		ArrayList<String> elements = new ArrayList<String>();
-		
-		for(int i=0;i<=sheet.getLastRowNum();i++) {
+
+		for (int i = 0; i <= sheet.getLastRowNum(); i++) {
 			row = sheet.getRow(i);
-			if(row.getCell(0).toString().equalsIgnoreCase(objectName)) {
+			if (row.getCell(0).toString().equalsIgnoreCase(objectName)) {
 				elements.add(row.getCell(0).toString());
 				elements.add(row.getCell(1).toString());
 				elements.add(row.getCell(2).toString());
@@ -185,5 +187,11 @@ public class DataIO {
 		}
 		workbook.close();
 		return elements;
+	}
+
+	public void reEvaluateExcelFormulas() {
+
+		workbook.setForceFormulaRecalculation(true);
+
 	}
 }

@@ -5,9 +5,8 @@
     <classes>
       <class name="com.assignment.test.endToEndScenarios.EndToEndTestCase">
         <methods>
+          <include name="testPhase2"/>
           <include name="tearUp"/>
-          <include name="launchBrowserWithUrl"/>
-          <include name="testPhase1"/>
         </methods>
       </class> <!-- com.assignment.test.endToEndScenarios.EndToEndTestCase -->
     </classes>

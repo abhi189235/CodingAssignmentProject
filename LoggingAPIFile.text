@@ -1,0 +1,67 @@
+Request method:	GET
+Request URI:	http://api.openweathermap.org/data/2.5/weather?q=Bengaluru&appid=f3d605ab16d6e3616da3419b861be788
+Proxy:			<none>
+Request params:	<none>
+Query params:	q=Bengaluru
+				appid=f3d605ab16d6e3616da3419b861be788
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+Server: openresty
+Date: Sun, 13 Sep 2020 06:10:07 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 472
+Connection: keep-alive
+X-Cache-Key: /data/2.5/weather?q=bengaluru
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Methods: GET, POST
+
+{
+    "coord": {
+        "lon": 77.6,
+        "lat": 12.98
+    },
+    "weather": [
+        {
+            "id": 804,
+            "main": "Clouds",
+            "description": "overcast clouds",
+            "icon": "04d"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 296.84,
+        "feels_like": 298.45,
+        "temp_min": 296.15,
+        "temp_max": 297.15,
+        "pressure": 1014,
+        "humidity": 88
+    },
+    "visibility": 6000,
+    "wind": {
+        "speed": 4.1,
+        "deg": 270
+    },
+    "clouds": {
+        "all": 90
+    },
+    "dt": 1599976990,
+    "sys": {
+        "type": 1,
+        "id": 9205,
+        "country": "IN",
+        "sunrise": 1599957528,
+        "sunset": 1600001548
+    },
+    "timezone": 19800,
+    "id": 1277333,
+    "name": "Bengaluru",
+    "cod": 200
+}
