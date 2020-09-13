@@ -1,9 +1,9 @@
 # MyAutomationE2EProject
 ### Table of Contents
 - [Description](#Description)
-- [Technology Used](#TechnologyUsed)
-- [How to Use?](#HowtoUse)
-- [Author's Info](#AuthorDetails)
+- [Technology Used](#Technology-Used)
+- [How to Use?](#How-to-Use)
+- [Author's Info](#Author's-Info)
 
 #### Description
 This is mini project which compares the temperature value of the UI(NDTV) and API(Open Weather), compares them on variance logic, and return True or False. If the value of calculated variance is less than 3, then the returned value should be true, otherwise false.
