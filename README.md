@@ -23,7 +23,8 @@ Go to "/CodingAssignmentProject/resources/testData/testData.properties" and chan
 1. The test class' path is in the testng.xml file, so directly right click on testng.xml file (in Eclipse) and select Run as "TestNG Suite" option
 2. Right Click on Pom.xml file and select "Run as Maven test" option
 3. Provide the project path(where pom.xml stored) in command prompt and provide "mvn test" command to run it from command prompt directly
-
+##### Validate Result
+Go to the folder "\CodingAssignmentProject\ExtentReports" and open the generated execution report to see the final execution status
 #### Author's Info
 - Linkedin - [@AbhishekJain](https://www.linkedin.com/in/abhishek-jain-849a0656/)
 
