@@ -8,6 +8,11 @@ import java.util.Calendar;
 import java.util.Properties;
 
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.FormulaEvaluator;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -124,7 +129,7 @@ public class DataIO {
 	 * This method will set the value in the given column and row of the excel sheet
 	 * with the given data, and will return true in return else false
 	 */
-	public boolean setCellData(String sheetName, String colName, int rowNum, String data) {
+	public boolean setCellData(String sheetName, String colName, int rowNum, String data, String typeData) {
 		try {
 			fis = new FileInputStream(path);
 			workbook = new XSSFWorkbook(fis);
@@ -156,7 +161,15 @@ public class DataIO {
 			if (cell == null)
 				cell = row.createCell(colNum);
 
-			cell.setCellValue(data);
+			if (typeData.equalsIgnoreCase("string")) {
+				cell.setCellType(CellType.STRING);
+				cell.setCellValue(data);
+			}
+
+			if (typeData.equalsIgnoreCase("double") || typeData.equalsIgnoreCase("float")) {
+				cell.setCellType(CellType.NUMERIC);
+				cell.setCellValue(Float.parseFloat(data));
+			}
 
 			fileOut = new FileOutputStream(path);
 
@@ -189,9 +202,19 @@ public class DataIO {
 		return elements;
 	}
 
+	// This method will re-evaluate all the formulas and update the values in excel
 	public void reEvaluateExcelFormulas() {
 
-		workbook.setForceFormulaRecalculation(true);
+		FormulaEvaluator evaluator = workbook.getCreationHelper().createFormulaEvaluator();
+		for (Sheet sheet : workbook) {
+			for (Row r : sheet) {
+				for (Cell c : r) {
+					if (c.getCellType() == CellType.FORMULA) {
+						evaluator.evaluateFormulaCell(c);
+					}
+				}
+			}
+		}
 
 	}
 }

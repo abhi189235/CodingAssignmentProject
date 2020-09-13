@@ -72,21 +72,23 @@ public class WeatherPageActions extends BaseActions {
 	}
 
 	// Logic of Temperature Variance
-	public void temperatureComparatorLogic() {
+	public void temperatureComparatorLogic(double UITempValue, double APITempValue) {
+		
+		String UITempStrFormat = String.valueOf(UITempValue);
+		String APITempStrFormat = String.valueOf(APITempValue);
+		
 		dio.loadExcelFile("TemperatureCalculationFolder", "TemperatureCalculation");
-		String UIVal = "30";
-		String APIVal = "35.89";
-		dio.setCellData("temperature", "CelsiusTemp", 2, UIVal);
-		dio.setCellData("temperature", "CelsiusTemp", 3, APIVal);
+		dio.setCellData("temperature", "CelsiusTemp", 2, UITempStrFormat, "double");
+		dio.setCellData("temperature", "CelsiusTemp", 3, APITempStrFormat, "double");
 		dio.reEvaluateExcelFormulas();
 		hardWait(3);
-		dio.loadExcelFile("TemperatureCalculationFolder", "TemperatureCalculation");
 		String sum = dio.getCellDataExcel("temperature", "(x-u)^2", 5);
 		String varianceVal = dio.getCellDataExcel("temperature", "(x-u)^2", 6);
 		String varianceLogicVal = dio.getCellDataExcel("temperature", "(x-u)^2", 7);
 		System.out.println(sum);
 		System.out.println(varianceVal);
 		System.out.println(varianceLogicVal);
+		
 
 	}
 }

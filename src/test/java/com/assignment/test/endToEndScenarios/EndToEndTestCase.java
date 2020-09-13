@@ -1,5 +1,6 @@
 package com.assignment.test.endToEndScenarios;
 
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -11,13 +12,13 @@ public class EndToEndTestCase extends BaseTest {
 	public double temperatureValAPI;
 
 	// Launch browser with NDTV Website
-	// @BeforeTest
+	@BeforeTest
 	public void launchBrowserWithUrl() {
 		tsi.baseActions.navigateToGivenUrl("Config", "url");
 	}
 
 	// Extract the Temperature in Celsius from NDTV Website
-	// @Test(priority = 1)
+	@Test(priority = 1)
 	public void testPhase1() throws Exception {
 
 		tsi.mainLandingPageActions.navigateToWeatherPage();
@@ -30,7 +31,7 @@ public class EndToEndTestCase extends BaseTest {
 	}
 
 	// Extract Temperature in Celsius from Open Weather API
-	// @Test(priority = 2)
+	@Test(priority = 2)
 	public void testPhase2() throws Exception {
 		tsi.weatherAPIHandlingActions.setUpMetadataForWeatherAPIGet();
 		tsi.weatherAPIHandlingActions.hitGetRequestForTempDetails();
@@ -41,8 +42,13 @@ public class EndToEndTestCase extends BaseTest {
 	}
 
 	// Comparator Logic of both UI and API valuess
-	@Test
+	@Test(priority = 3)
 	public void testPhase3() {
-		tsi.weatherPageActions.temperatureComparatorLogic();
+		tsi.weatherPageActions.temperatureComparatorLogic(temperatureValUI, temperatureValAPI);
+	}
+	
+	@AfterClass
+	public void closeBrowser() {
+		tsi.baseActions.closeCurrentInstanceBrowser();
 	}
 }

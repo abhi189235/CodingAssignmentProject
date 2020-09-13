@@ -394,4 +394,14 @@ public class CommonUtilities {
 		convertedTempInCelsius = Math.round(convertedTempInCelsius * 100.0) / 100.0;
 		return convertedTempInCelsius;
 	}
+
+	// Close current browser instance
+	public void closeCurrentInstanceBrowser() {
+		driver.close();
+	}
+
+	// Close all browser instance
+	public void closeAllInstancesBrowser() {
+		driver.quit();
+	}
 }

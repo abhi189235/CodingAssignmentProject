@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2020-09-13T10:05:06Z" name="Suite" finished-at="2020-09-13T10:05:30Z" duration-ms="23575">
+    <groups>
+    </groups>
+    <test started-at="2020-09-13T10:05:06Z" name="Test" finished-at="2020-09-13T10:05:30Z" duration-ms="23575">
+      <class name="com.assignment.test.endToEndScenarios.EndToEndTestCase">
+        <test-method is-config="true" signature="tearUp()[pri:0, instance:com.assignment.test.endToEndScenarios.EndToEndTestCase@4278284b]" started-at="2020-09-13T10:05:00Z" name="tearUp" finished-at="2020-09-13T10:05:06Z" duration-ms="6240" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearUp -->
+        <test-method is-config="true" signature="launchBrowserWithUrl()[pri:0, instance:com.assignment.test.endToEndScenarios.EndToEndTestCase@4278284b]" started-at="2020-09-13T10:05:06Z" name="launchBrowserWithUrl" finished-at="2020-09-13T10:05:08Z" duration-ms="1566" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchBrowserWithUrl -->
+        <test-method signature="testPhase1()[pri:1, instance:com.assignment.test.endToEndScenarios.EndToEndTestCase@4278284b]" started-at="2020-09-13T10:05:08Z" name="testPhase1" finished-at="2020-09-13T10:05:24Z" duration-ms="16869" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPhase1 -->
+        <test-method signature="testPhase2()[pri:2, instance:com.assignment.test.endToEndScenarios.EndToEndTestCase@4278284b]" started-at="2020-09-13T10:05:24Z" name="testPhase2" finished-at="2020-09-13T10:05:26Z" duration-ms="1699" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPhase2 -->
+        <test-method signature="testPhase3()[pri:3, instance:com.assignment.test.endToEndScenarios.EndToEndTestCase@4278284b]" started-at="2020-09-13T10:05:26Z" name="testPhase3" finished-at="2020-09-13T10:05:29Z" duration-ms="3365" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPhase3 -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.assignment.test.endToEndScenarios.EndToEndTestCase@4278284b]" started-at="2020-09-13T10:05:29Z" name="closeBrowser" finished-at="2020-09-13T10:05:30Z" duration-ms="65" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- com.assignment.test.endToEndScenarios.EndToEndTestCase -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

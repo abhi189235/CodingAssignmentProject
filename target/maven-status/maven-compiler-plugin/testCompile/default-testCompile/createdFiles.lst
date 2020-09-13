@@ -1,0 +1,11 @@
+com\assignment\actions\commonActions\BaseActions.class
+com\assignment\actions\temperatureValidate\MainLandingPageActions.class
+com\assignment\utils\CommonUtilities.class
+com\assignment\utils\DataIO.class
+com\assignment\utils\TemperatureAPIConstantResources.class
+com\assignment\setup\BaseTest.class
+com\assignment\setup\TestSessionInitiator.class
+com\assignment\setup\WebDriverSetup.class
+com\assignment\actions\temperatureValidate\WeatherAPIHandlingActions.class
+com\assignment\actions\temperatureValidate\WeatherPageActions.class
+com\assignment\test\endToEndScenarios\EndToEndTestCase.class
